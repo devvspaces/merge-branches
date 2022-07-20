@@ -1,5 +1,9 @@
 name: "Merge Branches"
 description: "Update the course repository when the learner completes a step."
+author: "devvspaces"
+branding:
+  icon: "git-merge"
+  color: "blue"
 inputs:
   token:
     description: "Set to [secrets.GITHUB_TOKEN]."
