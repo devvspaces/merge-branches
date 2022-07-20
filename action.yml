@@ -23,7 +23,7 @@ runs:
         git config user.email github-actions@github.com
         git merge $FROM_BRANCH
         git push
-  env:
-    GITHUB_TOKEN: ${{ inputs.token }}
-    FROM_BRANCH: ${{ inputs.from_branch }}
-    TO_BRANCH: ${{ inputs.to_branch }}
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        FROM_BRANCH: ${{ inputs.from_branch }}
+        TO_BRANCH: ${{ inputs.to_branch }}
