@@ -1,0 +1,29 @@
+name: "Merge Branches"
+description: "Update the course repository when the learner completes a step."
+inputs:
+  token:
+    description: "Set to [secrets.GITHUB_TOKEN]."
+    required: true
+  from_branch:
+    description: "Branch we want to merge to another branch"
+    required: true
+  to_branch:
+    description: "Branch we want to merge another branch on"
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        echo "Make sure we are on the $TO_BRANCH branch"
+        git checkout $TO_BRANCH
+
+        echo "Merge $FROM_BRANCH and push to $TO_BRANCH"
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git merge $FROM_BRANCH
+        git push
+  env:
+    GITHUB_TOKEN: ${{ inputs.token }}
+    FROM_BRANCH: ${{ inputs.from_branch }}
+    TO_BRANCH: ${{ inputs.to_branch }}
