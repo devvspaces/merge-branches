@@ -15,6 +15,7 @@ runs:
   steps:
     - shell: bash
       run: |
+        git branch -a
         echo "Make sure we are on the $TO_BRANCH branch"
         git checkout $TO_BRANCH
 
